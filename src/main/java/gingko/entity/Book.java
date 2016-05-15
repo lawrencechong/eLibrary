@@ -24,6 +24,8 @@ public class Book {
 	
 	private String title;
 	
+	private Boolean licensed;
+	
 	@ManyToMany
 	@JoinTable
 	private List<Author> authors;
@@ -123,6 +125,14 @@ public class Book {
 
 	public void setImg(byte[] img) {
 		this.img = img;
+	}
+
+	public Boolean getLicensed() {
+		return licensed;
+	}
+
+	public void setLicensed(Boolean licensed) {
+		this.licensed = licensed;
 	}
 	
 }

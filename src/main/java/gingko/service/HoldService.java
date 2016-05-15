@@ -13,7 +13,6 @@ import gingko.repository.HoldRepository;
 @Service
 public class HoldService {
 	
-	
 	@Autowired
 	private HoldRepository holdRepository;
 	

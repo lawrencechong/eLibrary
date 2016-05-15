@@ -15,6 +15,7 @@ import gingko.entity.User;
 import gingko.repository.BookRepository;
 import gingko.service.BookService;
 import gingko.service.HoldService;
+import gingko.service.RatingService;
 import gingko.service.UserService;
 import gingko.service.WishListService;
 
@@ -36,6 +37,9 @@ public class BookController {
 	
 	@Autowired
 	private BookRepository bookRepository;
+	
+	@Autowired
+	private RatingService ratingService;
 	
 	@ModelAttribute("book")
 	public Book construct(){
@@ -91,11 +95,7 @@ public class BookController {
 //		return "history";
 //	}
 //	
-//	@RequestMapping(value="/books/ratings")
-//	public String ratings(){
-//	model.addAttribute("books", bookService.findRatedBooks());	
-//		return "ratings";
-//	}
+
 //	
 //	@RequestMapping(value="/books/recommended")
 //	public String recommended(){
@@ -159,6 +159,34 @@ public class BookController {
 		User user = userService.findCurrentUser();
 		holdService.save(book,user);
 		return "redirect:/user/holds";
+	}
+	
+	@RequestMapping("/user/my_ratings")
+	public String ratings(Model model){
+		User currentUser = userService.findCurrentUser();
+		model.addAttribute("holds", ratingService.findByUser(currentUser));
+		return "holds";
+	}
+	
+	@RequestMapping("/user/my_ratings/delete/{id}")
+	public String deleteRating(@PathVariable int id) {
+		ratingService.delete(id);
+		return "redirect:/user/my_ratings";
+	}
+	
+	@RequestMapping("/user/my_ratings/new/Book/{id}/rating/{rating_score}")
+	public String newRating(@PathVariable int id, @PathVariable int rating_score) {
+		Book book = bookRepository.findOne(id);
+		User user = userService.findCurrentUser();
+		ratingService.save(book,user,rating_score);
+		return "redirect:/user/my_ratings";
+	}
+	
+	@RequestMapping("/user/my_ratings/edit/{id}/rating/{rating_score}")
+	public String editRating(@PathVariable int id, @PathVariable int rating_score) {
+		User user = userService.findCurrentUser();
+		ratingService.edit(id,user,rating_score);
+		return "redirect:/user/my_ratings";
 	}
 
 	

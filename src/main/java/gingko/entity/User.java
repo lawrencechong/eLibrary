@@ -38,7 +38,9 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<WishList> wishlists;
-
+	
+	@OneToMany(mappedBy = "user")
+	private List<Rating> ratings;
 	
 	public List<Role> getRoles() {
 		return roles;
