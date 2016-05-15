@@ -11,7 +11,7 @@
 			<th>Last Name</th>
 			<th>Email</th>
 			<th>Roles</th>
-			<th>Enabled?</th>
+			<th>Active?</th>
 		</tr>
 	</thead>
 	<tbody>

@@ -7,5 +7,7 @@
 		<class>gingko.entity.Author</class>
 		<class>gingko.entity.Genre</class>
 		<class>gingko.entity.Rating</class>
+		<class>gingko.entity.Hold</class>
+		<class>gingko.entity.WishList</class>
 	</persistence-unit>
 </persistence>

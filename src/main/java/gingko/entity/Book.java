@@ -31,6 +31,12 @@ public class Book {
 	@OneToMany(mappedBy = "book")
 	private List<Rating> ratings;
 	
+	@OneToMany(mappedBy = "book")
+	private List<Hold> holds;
+	
+	@OneToMany(mappedBy = "book")
+	private List<WishList> wishlists;
+	
 	@ManyToOne
 	@JoinColumn(name = "genre_id")
 	private Genre genre;

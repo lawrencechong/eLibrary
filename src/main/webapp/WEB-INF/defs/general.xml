@@ -6,6 +6,10 @@
 	<definition name="common" template="/WEB-INF/layout/classic.jsp">
 		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
 	</definition>
+	
+	<definition name="common-admin" template="/WEB-INF/layout/admin-navbar.jsp">
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+	</definition>
    
 	<definition name="index" extends="common">
 		<put-attribute name="title" value="eLibrary" />
@@ -17,12 +21,6 @@
 		<put-attribute name="title" value="Help/FAQ" />
 		<put-attribute name="body" value="/WEB-INF/jsp/help-faq.jsp" />
 		<put-attribute name="current" value="help-faq" />
-	</definition>
-
-	<definition name="users" extends="common">
-		<put-attribute name="title" value="Users" />
-		<put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
-		<put-attribute name="current" value="users" />
 	</definition>
 
 	<definition name="user-detail" extends="common">
@@ -39,7 +37,7 @@
 
 	<definition name="register" extends="common">
 		<put-attribute name="title" value="User registration" />
-		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user-register.jsp" />
 		<put-attribute name="current" value="register" />
 	</definition>
 
@@ -48,5 +46,66 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 		<put-attribute name="current" value="login" />
 	</definition>
+	
+	<definition name="user-edit" extends="common">
+		<put-attribute name="title" value="Edit Info" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user-edit.jsp" />
+		<put-attribute name="current" value="user-edit" />
+	</definition>
+	
+	<definition name="search" extends="common">
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="body" value="/WEB-INF/jsp/book-search-results.jsp" />
+		<put-attribute name="current" value="book-search-results" />
+	</definition>
+	
+	<definition name="adv-search" extends="common">
+		<put-attribute name="title" value="Advanced Search" />
+		<put-attribute name="body" value="/WEB-INF/jsp/adv-search.jsp" />
+		<put-attribute name="current" value="adv-search" />
+	</definition>
+	
+	<definition name="new_book" extends="common">
+		<put-attribute name="title" value="Add A Book" />
+		<put-attribute name="body" value="/WEB-INF/jsp/book-new.jsp" />
+		<put-attribute name="current" value="new_book" />
+	</definition>
+	
+	<definition name="admin" extends="common-admin">
+		<put-attribute name="title" value="Admin Dashboard" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin.jsp" />
+		<put-attribute name="current" value="admin" />
+	</definition>
+	
+	<definition name="users" extends="common-admin">
+		<put-attribute name="title" value="Users" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin-users.jsp" />
+		<put-attribute name="current" value="users" />
+	</definition>
+	
+	<definition name="403" >
+		<put-attribute name="title" value="Error" />
+		<put-attribute name="body" value="/WEB-INF/jsp/403.jsp" />
+		<put-attribute name="current" value="403" />
+	</definition>
+	
+	<definition name="book-detail" extends="common">
+		<put-attribute name="title" value="Book Detail" />
+		<put-attribute name="body" value="/WEB-INF/jsp/book-detail.jsp" />
+		<put-attribute name="current" value="book-detail" />
+	</definition>
+	
+	<definition name="holds" extends="common">
+		<put-attribute name="title" value="Holds" />
+		<put-attribute name="body" value="/WEB-INF/jsp/book-holds.jsp" />
+		<put-attribute name="current" value="Holds" />
+	</definition>
+	
+	<definition name="wishlist" extends="common">
+		<put-attribute name="title" value="Wish List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/book-wishlist.jsp" />
+		<put-attribute name="current" value="wishlist" />
+	</definition>
+	
 
 </tiles-definitions>

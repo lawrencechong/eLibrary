@@ -21,7 +21,8 @@
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>*.html</url-pattern>
+		<!-- <url-pattern>*.html</url-pattern> -->
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<listener>

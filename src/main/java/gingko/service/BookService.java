@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gingko.entity.Book;
+import gingko.entity.User;
 import gingko.repository.BookRepository;
 
 @Service
@@ -21,6 +22,27 @@ public class BookService {
 	
 	public List<Book> findAll(){
 		return bookRepository.findAll(); 
+	}
+
+
+	public void save(Book book) {
+		bookRepository.save(book);
+		
+	}
+	
+	public void banBook(Book book){
+		book.setStatus(false);
+		bookRepository.save(book);
+	}
+	
+	public void unbanBook(Book book){
+		book.setStatus(true);
+		bookRepository.save(book);
+	}
+
+
+	public Book findOne(int id) {
+		return bookRepository.findOne(id);
 	}
 
 }

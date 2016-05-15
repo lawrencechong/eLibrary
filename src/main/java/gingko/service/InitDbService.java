@@ -1,5 +1,7 @@
 package gingko.service;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +15,13 @@ import org.springframework.stereotype.Service;
 import gingko.entity.Author;
 import gingko.entity.Book;
 import gingko.entity.Genre;
+import gingko.entity.Hold;
 import gingko.entity.Role;
 import gingko.entity.User;
 import gingko.repository.AuthorRepository;
 import gingko.repository.BookRepository;
 import gingko.repository.GenreRepository;
+import gingko.repository.HoldRepository;
 import gingko.repository.RoleRepository;
 import gingko.repository.UserRepository;
 
@@ -39,6 +43,9 @@ public class InitDbService {
 	
 	@Autowired
 	private GenreRepository genreRepository;
+
+	@Autowired
+	private HoldRepository holdRepository; 
 
 	@PostConstruct
 	public void init() {
@@ -66,8 +73,9 @@ public class InitDbService {
 		userRepository.save(userAdmin);
 
 		User userUser = new User();
-		userUser.setName("user@test.com");
-		userUser.setPassword("user");
+		userUser.setName("user");
+		userUser.setPassword(encoder.encode("user"));
+		
 		List<Role> rolesUser = new ArrayList<Role>();
 		rolesUser.add(roleUser);
 		userUser.setRoles(rolesUser);
@@ -93,10 +101,30 @@ public class InitDbService {
 		book.setDescription("Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.");
 		book.setIsbn("0439708184");
 		book.setGenre(genre);
-//		book.setImg(img);
+
+//		File file = new File("c:url value= resources/images/harry_potter.jpg"); 
+//		byte [] byteFile = new byte[(int)file.length()];
+//		
+//		try{
+//			FileInputStream fs = new FileInputStream(file);
+//			fs.read(byteFile);
+//			fs.close();
+//		}catch (Exception e){
+//			e.printStackTrace();
+//		};
+//		book.setImg(byteFile);
+		
 		bookRepository.save(book);
 		
+		Hold hold = new Hold();
+		hold.setUser(userAdmin);
+		hold.setBook(book);
+		holdRepository.save(hold);
 		
+		Hold hold2 = new Hold();
+		hold2.setUser(userUser);
+		hold2.setBook(book);
+		holdRepository.save(hold2);
 	}
 
 }
