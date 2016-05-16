@@ -12,7 +12,7 @@ public class Rating {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "book_id")
 	private Book book;
@@ -22,7 +22,15 @@ public class Rating {
 	private User user;
 	
 	private Integer rating_score;
+	
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public Book getBook() {
 		return book;
 	}

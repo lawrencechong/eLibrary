@@ -92,4 +92,44 @@ body{
 	color: white;
 }
 
+.section_head{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid;
+    border-bottom-color: #95a5a6;
+}
+
+.book_index_title{	
+    color: black;
+  	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  	font-size: 28px;
+  	text-align:left;
+}
+
+.section_link{
+	float:right;
+	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    vertical-align: bottom;
+}
+
+#book_section{ 
+    max-width: 650px;
+    padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+#random img{
+    width:80px;
+}
+
+.book-container{
+    display: inline-block;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+
+
 

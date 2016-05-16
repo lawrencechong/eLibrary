@@ -19,12 +19,16 @@ public class RatingService {
 	@Autowired
 	private UserService userService;
 	
+	public Rating findOne(int id) {
+		return ratingRepository.findOne(id);
+	}
+	
 	public List<Rating> findByUser(User user) {
 		return ratingRepository.findByUser(user);
 	}
 	
-	public Rating findOne(int id) {
-		return ratingRepository.findOne(id);
+	public Rating findByBookAndUser(Book book, User user) {
+		return ratingRepository.findByBookAndUser(book,user);
 	}
 	
 	public void delete(int id) {
@@ -34,17 +38,15 @@ public class RatingService {
 		}
 	}
 	
-	public void save(Book book, User user, Integer rating_score) {
-		Rating rating = new Rating();
-		rating.setBook(book);
-		rating.setUser(user);
-		rating.setRating_score(rating_score);
-		ratingRepository.save(rating);	
-	}
-	
-	public void edit(int id, User user, Integer rating_score) {
-		Rating rating = findOne(id);
-		if (userService.findCurrentUser() == rating.getUser()){
+	public void edit(Book book, User user, Integer rating_score) {
+		Rating rating = findByBookAndUser(book,user);
+		if (rating == null){
+			rating = new Rating();
+			rating.setBook(book);
+			rating.setUser(user);
+			rating.setRating_score(rating_score);
+			ratingRepository.save(rating);
+		} else {
 			rating.setRating_score(rating_score);
 			ratingRepository.save(rating);
 		}

@@ -107,5 +107,12 @@
 		<put-attribute name="current" value="wishlist" />
 	</definition>
 	
+	<definition name="ratings" extends="common">
+		<put-attribute name="title" value="ratings" />
+		<put-attribute name="body" value="/WEB-INF/jsp/book-ratings.jsp" />
+		<put-attribute name="current" value="ratings" />
+	</definition>
+	
+	
 
 </tiles-definitions>

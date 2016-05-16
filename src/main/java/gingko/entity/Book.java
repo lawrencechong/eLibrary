@@ -1,5 +1,6 @@
 package gingko.entity;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,6 +26,8 @@ public class Book {
 	private String title;
 	
 	private Boolean licensed;
+	
+	private Date date_added;
 	
 	@ManyToMany
 	@JoinTable
@@ -133,6 +136,14 @@ public class Book {
 
 	public void setLicensed(Boolean licensed) {
 		this.licensed = licensed;
+	}
+
+	public Date getDate_added() {
+		return date_added;
+	}
+
+	public void setDate_added(Date date_added) {
+		this.date_added = date_added;
 	}
 	
 }

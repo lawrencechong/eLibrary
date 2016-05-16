@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import java.security.Principal;
 
 import gingko.entity.Book;
+import gingko.entity.Rating;
 import gingko.entity.User;
 import gingko.repository.BookRepository;
 import gingko.service.BookService;
@@ -36,9 +38,6 @@ public class BookController {
 	private WishListService wishListService;
 	
 	@Autowired
-	private BookRepository bookRepository;
-	
-	@Autowired
 	private RatingService ratingService;
 	
 	@ModelAttribute("book")
@@ -47,8 +46,14 @@ public class BookController {
 	}
 	
 	@RequestMapping(value="/book/{id}")
-	public String detail(Model model, @PathVariable int id) {
-		model.addAttribute("book", bookService.findOne(id));
+	public String detail(Model model, @PathVariable int id, Principal principal) {
+		Book book = bookService.findOne(id);
+		model.addAttribute("book", book);
+		if (principal != null ){
+			User user = userService.findCurrentUser();
+			model.addAttribute("rating", ratingService.findByBookAndUser(book, user));
+			model.addAttribute("book2", book);
+		}
 		return "book-detail";
 	}
 	
@@ -134,7 +139,7 @@ public class BookController {
 
 	@RequestMapping("/user/wishlist/new/Book/{id}")
 	public String newWish(@PathVariable int id) {
-		Book book = bookRepository.findOne(id);
+		Book book = bookService.findOne(id);
 		User user = userService.findCurrentUser();
 		wishListService.save(book,user);
 		return "redirect:/user/wishlist";
@@ -155,7 +160,7 @@ public class BookController {
 	
 	@RequestMapping("/user/holds/new/Book/{id}")
 	public String newHold(@PathVariable int id) {
-		Book book = bookRepository.findOne(id);
+		Book book = bookService.findOne(id);
 		User user = userService.findCurrentUser();
 		holdService.save(book,user);
 		return "redirect:/user/holds";
@@ -164,29 +169,26 @@ public class BookController {
 	@RequestMapping("/user/my_ratings")
 	public String ratings(Model model){
 		User currentUser = userService.findCurrentUser();
-		model.addAttribute("holds", ratingService.findByUser(currentUser));
-		return "holds";
+		model.addAttribute("ratings", ratingService.findByUser(currentUser));
+		return "ratings";
 	}
 	
-	@RequestMapping("/user/my_ratings/delete/{id}")
-	public String deleteRating(@PathVariable int id) {
-		ratingService.delete(id);
-		return "redirect:/user/my_ratings";
+	@RequestMapping("/user/rating/{rating_id}/delete")
+	public String deleteRating(@PathVariable int rating_id) {
+		Rating rating = ratingService.findOne(rating_id);
+		Integer book_id = rating.getBook().getId();
+		ratingService.delete(rating_id);
+		return "redirect:/book/" + book_id.toString();
 	}
 	
-	@RequestMapping("/user/my_ratings/new/Book/{id}/rating/{rating_score}")
-	public String newRating(@PathVariable int id, @PathVariable int rating_score) {
-		Book book = bookRepository.findOne(id);
-		User user = userService.findCurrentUser();
-		ratingService.save(book,user,rating_score);
-		return "redirect:/user/my_ratings";
-	}
-	
-	@RequestMapping("/user/my_ratings/edit/{id}/rating/{rating_score}")
-	public String editRating(@PathVariable int id, @PathVariable int rating_score) {
-		User user = userService.findCurrentUser();
-		ratingService.edit(id,user,rating_score);
-		return "redirect:/user/my_ratings";
+	@RequestMapping("/user/rate/book/{book_id}/rating/{rating_score}")
+	public String editRating(@PathVariable int book_id, @PathVariable int rating_score) {
+		if (rating_score >= 1 && rating_score <=5){
+			Book book = bookService.findOne(book_id);
+			User user = userService.findCurrentUser();
+			ratingService.edit(book,user,rating_score);
+		}
+		return "redirect:/book/{book_id}";
 	}
 
 	

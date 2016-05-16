@@ -77,7 +77,7 @@
 				<div class="dropdown-menu">
 					<a class="item" href="/books/wishlist">Wish List</a> <a
 						class="item" href="/books/favorites">Favorites</a> <a class="item"
-						href="/books/ratings">Ratings</a>
+						href="/user/my_ratings">Ratings</a>
 				</div>
 			</div>
 
