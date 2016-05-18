@@ -62,5 +62,6 @@ ${book.description}
 		<button class="ui basic button" onClick="location.href='/user/return/book/${book.id}'">
 			Return
 		</button>
+		<a class="ui basic button" href="/resources/pdf/pdf-sample.pdf">Sample</a>
 	</div>
 </security:authorize>

@@ -86,11 +86,7 @@ Found: ${booksFound} Books
 						<p class="group inner list-group-item-text">${book.shortenDescription()}</p>
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
-								<p class="lead">$21.000</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-success" href="http://www.jquery2dotnet.com">Add
-									to cart</a>
+								<a class="ui green button" href="/resources/pdf/pdf-sample.pdf">Sample</a>
 							</div>
 						</div>
 					</div>
