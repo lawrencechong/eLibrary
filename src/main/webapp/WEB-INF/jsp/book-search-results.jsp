@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ include file="../layout/taglib.jsp"%>
+<jsp:useBean id="random" class="java.util.Random" scope="application" />
+<img class="center-block" src=${'/resources/images/banner'.concat(random.nextInt(4)).concat('.gif')}>
+<br>
 
 Found: ${booksFound} Books
 <br>

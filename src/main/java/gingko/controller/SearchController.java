@@ -1,19 +1,16 @@
 package gingko.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import gingko.entity.Book;
+import gingko.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import gingko.entity.Book;
-import gingko.service.SearchService;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class SearchController {
@@ -56,7 +53,7 @@ public class SearchController {
 		model.addAttribute("books", books);
 		model.addAttribute("lastPage", Integer.toString(lastPage));
 		model.addAttribute("booksFound", Integer.toString(booksFound));
-		
+
 		int previousPage = page - 1;
 		if (previousPage >= 0){
 			model.addAttribute("previousPage", Integer.toString(previousPage));
