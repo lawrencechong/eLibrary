@@ -14,11 +14,13 @@ import org.springframework.stereotype.Service;
 
 import gingko.entity.Author;
 import gingko.entity.Book;
+import gingko.entity.BookCopy;
 import gingko.entity.Genre;
 import gingko.entity.Hold;
 import gingko.entity.Role;
 import gingko.entity.User;
 import gingko.repository.AuthorRepository;
+import gingko.repository.BookCopyRepository;
 import gingko.repository.BookRepository;
 import gingko.repository.GenreRepository;
 import gingko.repository.HoldRepository;
@@ -46,6 +48,9 @@ public class InitDbService {
 
 	@Autowired
 	private HoldRepository holdRepository; 
+	
+	@Autowired
+	private BookCopyRepository bookCopyRepository;
 
 	@PostConstruct
 	public void init() {
@@ -116,6 +121,23 @@ public class InitDbService {
 		
 		bookRepository.save(book);
 		
+		Author author2 = new Author();
+		author2.setName("George R. R. Martin");
+		authorRepository.save(author2);
+		
+		Book book2 = new Book();
+		book2.setStatus(true);
+		book2.setTitle("A Game of Thrones (A Song of Ice and Fire, Book 1)");
+		List<Author> authorsBook2 = new ArrayList<Author>();
+		authorsBook2.add(author2);
+		book2.setAuthors(authorsBook2);
+		book2.setDescription("Long ago, in a time forgotten, a preternatural event threw the seasons out of balance. In a land where summers can last decades and winters a lifetime, trouble is brewing. The cold is returning, and in the frozen wastes to the north of Winterfell, sinister and supernatural forces are massing beyond the kingdom’s protective Wall. At the center of the conflict lie the Starks of Winterfell, a family as harsh and unyielding as the land they were born to. Sweeping from a land of brutal cold to a distant summertime kingdom of epicurean plenty, here is a tale of lords and ladies, soldiers and sorcerers, assassins and bastards, who come together in a time of grim omens." +  ""
+				+ "Here an enigmatic band of warriors bear swords of no human metal; a tribe of fierce wildlings carry men off into madness; a cruel young dragon prince barters his sister to win back his throne; and a determined woman undertakes the most treacherous of journeys. Amid plots and counterplots, tragedy and betrayal, victory and terror, the fate of the Starks, their allies, and their enemies hangs perilously in the balance, as each endeavors to win that deadliest of conflicts: the game of thrones." +
+			"Here is the first volume in George R. R. Martin’s magnificent cycle of novels that includes A Clash of Kings and A Storm of Swords. As a whole, this series comprises a genuine masterpiece of modern fantasy, bringing together the best the genre has to offer. Magic, mystery, intrigue, romance, and adventure fill these pages and transport us to a world unlike any we have ever experienced. Already hailed as a classic, George R. R. Martin’s stunning series is destined to stand as one of the great achievements of imaginative fiction.");
+		book2.setIsbn("0553386794");
+		book2.setGenre(genre);
+		bookRepository.save(book2);
+		
 		Hold hold = new Hold();
 		hold.setUser(userAdmin);
 		hold.setBook(book);
@@ -125,6 +147,32 @@ public class InitDbService {
 		hold2.setUser(userUser);
 		hold2.setBook(book);
 		holdRepository.save(hold2);
+		
+		BookCopy bookcopy1 = new BookCopy();
+		bookcopy1.setBook(book);
+		bookcopy1.setAvailable(true);
+		bookCopyRepository.save(bookcopy1);
+		
+		BookCopy bookcopy2 = new BookCopy();
+		bookcopy2.setBook(book);
+		bookcopy2.setAvailable(true);
+		bookCopyRepository.save(bookcopy2);
+		
+		BookCopy bookcopy3 = new BookCopy();
+		bookcopy3.setBook(book);
+		bookcopy3.setAvailable(false);
+		bookCopyRepository.save(bookcopy3);
+		
+		BookCopy bookcopy4 = new BookCopy();
+		bookcopy4.setBook(book);
+		bookcopy4.setAvailable(false);
+		bookCopyRepository.save(bookcopy4);
+		
+		BookCopy bookcopy5 = new BookCopy();
+		bookcopy5.setBook(book2);
+		bookcopy5.setAvailable(false);
+		bookCopyRepository.save(bookcopy2);
+		
 	}
 
 }

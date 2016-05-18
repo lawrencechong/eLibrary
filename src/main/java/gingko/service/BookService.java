@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import gingko.entity.Book;
 import gingko.entity.User;
+import gingko.repository.BookCopyRepository;
 import gingko.repository.BookRepository;
 
 @Service
@@ -18,6 +19,9 @@ public class BookService {
 	
 	@Autowired
 	private BookRepository bookRepository;
+	
+	@Autowired
+	private BookCopyService bookCopyService;
 	
 	
 	public List<Book> findAll(){
@@ -45,4 +49,13 @@ public class BookService {
 		return bookRepository.findOne(id);
 	}
 
+	public int totalBookCopies(int id) {
+		Book book = findOne(id);
+		return bookCopyService.findByBook(book).size();
+	}
+	
+	public int totalAvailableBookCopies(int id) {
+		Book book = findOne(id);
+		return bookCopyService.findByBook(book).size();
+	}
 }

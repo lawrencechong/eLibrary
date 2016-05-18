@@ -9,5 +9,7 @@
 		<class>gingko.entity.Rating</class>
 		<class>gingko.entity.Hold</class>
 		<class>gingko.entity.WishList</class>
+		<class>gingko.entity.BookCopy</class>
+		<class>gingko.entity.BookCheckOut</class>
 	</persistence-unit>
 </persistence>

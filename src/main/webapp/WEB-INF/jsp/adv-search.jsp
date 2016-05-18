@@ -4,7 +4,6 @@
 
 <%@ include file="../layout/taglib.jsp"%>
 
-
 <div id="auth-container" class="ui form"
 	style="margin-left: 125px; margin-top: 85px; margin-right: 200px">
 	<h4 class="ui dividing header">Advanced Book Search Form</h4>
@@ -12,7 +11,7 @@
 	<div class="ui form segment" id="auth">
 
 		<form class="form-signin" role="form"
-			action="<spring:url value="/adv_search" />" method="GET">
+			action="<spring:url value="/search" />" method="GET">
 
 			<div class="field">
 				<input type="text" name="title" class="form-control"

@@ -75,9 +75,8 @@
 			<div class="ui dropdown item">
 				Lists<i class="dropdown icon"></i>
 				<div class="dropdown-menu">
-					<a class="item" href="/books/wishlist">Wish List</a> <a
-						class="item" href="/books/favorites">Favorites</a> <a class="item"
-						href="/user/my_ratings">Ratings</a>
+					<a class="item" href="/user/wishlist">Wish List</a> 
+					<a class="item" href="/user/my_ratings">Ratings</a>
 				</div>
 			</div>
 
@@ -107,8 +106,6 @@
 
 			<security:authorize access="isAuthenticated()">
 				<div class="ui dropdown item">
-					<img class="ui avatar image"
-						src="https://signup.na.leagueoflegends.com/theme/signup_new_theme/img/logo-lol-smaller.png">
 					Signed in as: ${user.username} <i class="dropdown icon"></i>
 					<div class="dropdown-menu">
 						<security:authorize access="hasRole('ROLE_ADMIN')">

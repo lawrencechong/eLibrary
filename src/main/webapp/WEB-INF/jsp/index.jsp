@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ include file="../layout/taglib.jsp"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+<security:authentication var="user" property="principal" />
 
 <table class="table table-bordered table-hover table-striped">
 	<thead>
@@ -24,23 +27,25 @@
 	</tbody>
 </table>
 
+<security:authorize access="isAuthenticated()">
+	<div class="book_section">
+		<div class="section_head">
+			<p class="book_index_title">
+				Recommended For You <span class="section_link"> <a
+					href="/books/new_books">More Recommended Books ></a></span>
+			</p>
+		</div>
+
+	</div>
+</security:authorize>
 
 <div class="book_section">
 	<div class="section_head">
-		<p class="book_index_title">Recommended For You</p>
-
+		<p class="book_index_title">
+			Most Popular <span class="section_link"> <a
+				href="/books/new_books">More Popular Books ></a></span>
+		</p>
 	</div>
-
-
-
-</div>
-
-<div class="book_section">
-	<div class="section_head">
-		<p class="book_index_title">Most Popular</p>
-
-	</div>
-
 
 </div>
 
@@ -77,10 +82,6 @@
 </div>
 
 <div class="book_section">
-	<div class="section_head">
-		<p class="book_index_title"></p>
-	</div>
-	
 	<div class="section_head">
 		<p class="book_index_title">
 			New Audio Books <span class="section_link"> <a

@@ -1,18 +1,20 @@
 package gingko.service;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gingko.entity.Book;
-import gingko.entity.Hold;
 import gingko.entity.User;
 import gingko.entity.WishList;
-import gingko.repository.HoldRepository;
 import gingko.repository.WishListRepository;
 
 @Service
+@Transactional
 public class WishListService {
 	
 	@Autowired
@@ -29,10 +31,9 @@ public class WishListService {
 		return wishListRepository.findByUser(user);
 	}
 	
-	public  void delete(int id) {
-		WishList wish = findOne(id);
-		if (userService.findCurrentUser() == wish.getUser()){
-			wishListRepository.delete(id);
+	public  void delete(WishList wishbook) {
+		if (userService.findCurrentUser() == wishbook.getUser()){
+			wishListRepository.delete(wishbook.getId());
 		}
 	}
 
@@ -41,6 +42,21 @@ public class WishListService {
 		wish.setBook(book);
 		wish.setUser(user);
 		wishListRepository.save(wish);	
+	}
+
+	public WishList findByBookAndUser(Book book, User user) {
+		return wishListRepository.findByBookAndUser(book,user);
+	}
+	
+	public List<WishList> findAvailableWishListBooks(User user){
+		List<WishList> availableBooks = new ArrayList<WishList>();
+		List<WishList> allBooks = findByUser(user);
+		for(WishList wishBook : allBooks){
+			if (wishBook.getBook().isAvailable()){
+				availableBooks.add(wishBook);
+			}
+		}
+		return availableBooks;
 	}
 	
 }

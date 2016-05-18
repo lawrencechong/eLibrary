@@ -1,6 +1,7 @@
 package gingko.entity;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,8 +31,32 @@ public class Book {
 	private Date date_added;
 	
 	@ManyToMany
-	@JoinTable
+	@JoinTable(name="BookAuthor", 
+    joinColumns=@JoinColumn(name="id"),
+    inverseJoinColumns=@JoinColumn(name="author_id"))  
 	private List<Author> authors;
+	
+	@OneToMany(mappedBy = "book")
+	private List<BookCopy> bookcopies;
+	
+	public List<BookCopy> getBookcopies() {
+		return bookcopies;
+	}
+
+	public void setBookcopies(List<BookCopy> bookcopies) {
+		this.bookcopies = bookcopies;
+	}
+
+	public List<BookCheckOut> getBookcheckouts() {
+		return bookcheckouts;
+	}
+
+	public void setBookcheckouts(List<BookCheckOut> bookcheckouts) {
+		this.bookcheckouts = bookcheckouts;
+	}
+
+	@OneToMany(mappedBy = "book")
+	private List<BookCheckOut> bookcheckouts;
 	
 	@OneToMany(mappedBy = "book")
 	private List<Rating> ratings;
@@ -144,6 +169,28 @@ public class Book {
 
 	public void setDate_added(Date date_added) {
 		this.date_added = date_added;
+	}
+	
+	public boolean isAvailable(){
+		return this.getBookcopies().size() > this.getBookcheckouts().size();
+	}
+	
+	public static List<Book> onlyAvailableBooks(List<Book> books){
+		List<Book> availableBooks = new ArrayList<Book>();
+		for(Book book : books){
+			if (book.isAvailable()){
+				availableBooks.add(book);
+			}
+		}
+		return availableBooks;
+	}
+	
+	public String shortenDescription(){
+		if (this.getDescription().length() > 360){
+			return this.getDescription().substring(0, 360).trim() + "...";
+		} else {
+			return this.getDescription();
+		}
 	}
 	
 }

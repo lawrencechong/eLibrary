@@ -130,6 +130,17 @@ body{
     padding-bottom: 50px;
 }
 
+.left, .right {
+  display:inline;
+  margin: auto;
+}
+
+.right {
+	float:right;
+}
+.ui.search .prompt {
+	border-radius: 0rem;
+	}
 
 
 

@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.security.Principal;
 
 import gingko.entity.Book;
+import gingko.entity.Hold;
 import gingko.entity.Rating;
 import gingko.entity.User;
-import gingko.repository.BookRepository;
+import gingko.entity.WishList;
+import gingko.service.BookCopyService;
 import gingko.service.BookService;
 import gingko.service.HoldService;
 import gingko.service.RatingService;
@@ -40,6 +44,9 @@ public class BookController {
 	@Autowired
 	private RatingService ratingService;
 	
+	@Autowired
+	private BookCopyService bookCopyService;
+	
 	@ModelAttribute("book")
 	public Book construct(){
 		return new Book();
@@ -52,7 +59,8 @@ public class BookController {
 		if (principal != null ){
 			User user = userService.findCurrentUser();
 			model.addAttribute("rating", ratingService.findByBookAndUser(book, user));
-			model.addAttribute("book2", book);
+			model.addAttribute("wishlist", wishListService.findByBookAndUser(book, user));
+			model.addAttribute("hold", holdService.findByBookAndUser(book, user));
 		}
 		return "book-detail";
 	}
@@ -115,34 +123,41 @@ public class BookController {
 //	
 //	@RequestMapping(value="/books/recommend", method = RequestMethod.POST)
 //	public void doRecommendBook(@ModelAttribute("book") Book book){
-////		bookService.save(book);
-////		return "redirect:/book/new?success=true";
+//		bookService.save(book);
+//		return "redirect:/book/new?success=true";
 //	}
 //	
 //	@RequestMapping(value="/books/borrow/{id}")
 //	public String borrowBook(){
+//		bookService.borrow(id)
 //		return "borrowBook";
 //	}
 	
 	@RequestMapping("/user/wishlist")
-	public String wishlist(Model model){
+	public String wishlist(@RequestParam(value = "view", required = false) String view, Model model) {
 		User currentUser = userService.findCurrentUser();
-		model.addAttribute("wishlist", wishListService.findByUser(currentUser));
+		if ("available".equals(view)){	
+			model.addAttribute("wishlist", wishListService.findAvailableWishListBooks(currentUser));
+		}else{
+			model.addAttribute("wishlist", wishListService.findByUser(currentUser));
+		}
 		return "wishlist";
 	}
 	
-	@RequestMapping("/user/wishlist/delete/{id}")
-	public String deleteWishListBook(@PathVariable int id) {
-		wishListService.delete(id);
-		return "redirect:/user/wishlist";
+	@RequestMapping("/user/wishlist/remove/book/{book_id}")
+	public String deleteWishListBook(@PathVariable int book_id) {
+		User currentUser = userService.findCurrentUser();
+		WishList wishBook = wishListService.findByBookAndUser(bookService.findOne(book_id), currentUser);
+		wishListService.delete(wishBook);
+		return "redirect:/book/{book_id}";
 	}
 
-	@RequestMapping("/user/wishlist/new/Book/{id}")
+	@RequestMapping("/user/wishlist/book/{id}")
 	public String newWish(@PathVariable int id) {
 		Book book = bookService.findOne(id);
 		User user = userService.findCurrentUser();
 		wishListService.save(book,user);
-		return "redirect:/user/wishlist";
+		return "redirect:/book/{id}";
 	}
 	
 	@RequestMapping("/user/holds")
@@ -152,10 +167,12 @@ public class BookController {
 		return "holds";
 	}
 	
-	@RequestMapping("/user/holds/delete/{id}")
-	public String deleteHold(@PathVariable int id) {
-		holdService.delete(id);
-		return "redirect:/user/holds";
+	@RequestMapping("/user/holds/delete/{book_id}")
+	public String deleteHold(@PathVariable int book_id) {
+		User currentUser = userService.findCurrentUser();
+		Hold hold = holdService.findByBookAndUser(bookService.findOne(book_id), currentUser);
+		holdService.delete(hold);
+		return "redirect:/book/{book_id}";
 	}
 	
 	@RequestMapping("/user/holds/new/Book/{id}")
@@ -163,7 +180,7 @@ public class BookController {
 		Book book = bookService.findOne(id);
 		User user = userService.findCurrentUser();
 		holdService.save(book,user);
-		return "redirect:/user/holds";
+		return "redirect:/book/{id}";
 	}
 	
 	@RequestMapping("/user/my_ratings")

@@ -42,6 +42,41 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Rating> ratings;
 	
+	@OneToMany(mappedBy = "user")
+	private List<BookCheckOut> bookcheckouts;
+	
+	public List<Hold> getHolds() {
+		return holds;
+	}
+
+	public void setHolds(List<Hold> holds) {
+		this.holds = holds;
+	}
+
+	public List<WishList> getWishlists() {
+		return wishlists;
+	}
+
+	public void setWishlists(List<WishList> wishlists) {
+		this.wishlists = wishlists;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+
+	public List<BookCheckOut> getBookcheckouts() {
+		return bookcheckouts;
+	}
+
+	public void setBookcheckouts(List<BookCheckOut> bookcheckouts) {
+		this.bookcheckouts = bookcheckouts;
+	}
+
 	public List<Role> getRoles() {
 		return roles;
 	}
