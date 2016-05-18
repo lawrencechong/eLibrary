@@ -1,5 +1,7 @@
 package gingko.controller;
 
+import gingko.entity.User;
+import gingko.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -66,6 +68,11 @@ public class AdminController {
 //	public String addBooktoWishList(){
 //		return "deleteBook";
 	//}
-	
+@RequestMapping("/admin/ban/{user_name}")
+public String ratings(Model model){
+	User currentUser = userService.findCurrentUser();
+	model.addAttribute("ban", UserService.user_name({id}));
+	return "ratings";
+}
 	
 }

@@ -12,6 +12,7 @@
 			<th>Email</th>
 			<th>Roles</th>
 			<th>Active?</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,11 +24,10 @@
 				
 				<td> <c:forEach items="${user.roles}" var="role">
 					${role.name}
-				</c:forEach></td> 
-					
-
+				</c:forEach></td>
 				<td>${user.enabled}</td>
-			</tr>
+				<td class="ui red button" onClick="location.href='/admin/ban/${user.name}'">Ban</td>
+			</tr>x
 		</c:forEach>
 	</tbody>
 </table>

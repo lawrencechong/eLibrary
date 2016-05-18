@@ -2,57 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4a6ea0c-933a-499d-b144-0ddfe53a4d16" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/gingko.jba/elibrary/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/gingko.jba/elibrary/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/book_002dsearch_002dresults_jsp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/book_002dsearch_002dresults_jsp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/layout/classic_jsp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/layout/classic_jsp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/layout/footer_jsp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/layout/footer_jsp.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/controller/AdminController.class" afterPath="$PROJECT_DIR$/target/classes/gingko/controller/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/controller/BookController.class" afterPath="$PROJECT_DIR$/target/classes/gingko/controller/BookController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/controller/IndexController.class" afterPath="$PROJECT_DIR$/target/classes/gingko/controller/IndexController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/gingko/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/controller/SearchController.class" afterPath="$PROJECT_DIR$/target/classes/gingko/controller/SearchController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/gingko/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Author.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Author.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Book.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Book.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/BookCheckOut.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/BookCheckOut.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/BookCopy.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/BookCopy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Genre.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Genre.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Hold.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Hold.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Rating.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Rating.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Role.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Role.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/Transaction.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/Transaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/User.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/entity/WishList.class" afterPath="$PROJECT_DIR$/target/classes/gingko/entity/WishList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/AuthorRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/AuthorRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/BookCheckOutRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/BookCheckOutRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/BookCopyRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/BookCopyRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/BookRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/BookRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/GenreRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/GenreRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/HoldRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/HoldRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/RatingRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/RatingRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/RoleRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/RoleRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/UserRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/repository/WishListRepository.class" afterPath="$PROJECT_DIR$/target/classes/gingko/repository/WishListRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/BookCheckOutService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/BookCheckOutService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/BookCopyService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/BookCopyService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/BookService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/BookService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/HoldService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/HoldService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/InitDbService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/InitDbService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/RatingService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/RatingService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/SearchService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/SearchService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/gingko/service/WishListService.class" afterPath="$PROJECT_DIR$/target/classes/gingko/service/WishListService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book-search-results.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book-search-results.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user-register.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user-register.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="eLibrary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,6 +49,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -834,12 +785,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463597581485</updated>
-      <workItem from="1463597583251" duration="554000" />
+      <workItem from="1463597583251" duration="660000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="554000" />
+    <option name="totallyTimeSpent" value="660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
