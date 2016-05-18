@@ -74,7 +74,9 @@ public class Book {
 	@Lob
 	@Column(length = 10000, name = "description")
 	private String description;
-	
+
+	private String publisher;
+
 	@Lob
 	@Column(name="IMG")
 	private byte[] img;
@@ -192,5 +194,8 @@ public class Book {
 			return this.getDescription();
 		}
 	}
-	
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
 }
