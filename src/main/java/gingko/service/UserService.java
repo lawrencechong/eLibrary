@@ -56,7 +56,6 @@ public class UserService {
 		String name = auth.getName();
 		return userRepository.findByName(name);
 	}
-
 	public void update(User user) {
 		User currentUser = findCurrentUser();
 		

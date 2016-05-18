@@ -26,7 +26,7 @@
 					${role.name}
 				</c:forEach></td>
 				<td>${user.enabled}</td>
-				<td class="ui red button" onClick="location.href='/admin/ban/${user.name}'">Ban</td>
+				<td class="ui red button" onClick="location.href='./admin/ban/${user.name}'">Ban</td>
 			</tr>x
 		</c:forEach>
 	</tbody>

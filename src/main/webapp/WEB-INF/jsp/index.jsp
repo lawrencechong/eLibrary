@@ -57,28 +57,32 @@
 		</p>
 	</div>
 
-	<div class='book-container'>
-		<div class="ui card">
-			<center>
-				<div class="image">
-					<img src="<c:url value='/resources/images/hp.jpg'/>" alt="book"
-						width="290">
+	<c:forEach items="${books}" var="book">
+		<div class='book-container'>
+			<div class="ui card">
+				<center>
+					<div class="image">
+						<img src="<c:url value='/resources/images/hp.jpg'/>" alt="book"
+							width="290">
+					</div>
+				</center>
+				<div class="content">
+					<a class="header"><a href="/book/${book.id}">${book.title}</a></a>
+					<c:forEach items="${book.authors}" var="author">
+					<div class="meta">
+						<span class="date">${author.name}</span>
+					</div>
+					</c:forEach>
+					<div class="description">Kristy is an art director living in
+						New York.</div>
 				</div>
-			</center>
-			<div class="content">
-				<a class="header">Harry Potter and the Sorcerer's Stone</a>
-				<div class="meta">
-					<span class="date">J.K. Rowling</span>
+				<div class="extra content">
+					<a> <i class="user icon"></i> 22 Friends
+					</a>
 				</div>
-				<div class="description">Kristy is an art director living in
-					New York.</div>
-			</div>
-			<div class="extra content">
-				<a> <i class="user icon"></i> 22 Friends
-				</a>
 			</div>
 		</div>
-	</div>
+	</c:forEach>
 </div>
 
 <div class="book_section">

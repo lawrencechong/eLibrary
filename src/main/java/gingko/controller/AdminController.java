@@ -68,11 +68,5 @@ public class AdminController {
 //	public String addBooktoWishList(){
 //		return "deleteBook";
 	//}
-@RequestMapping("/admin/ban/{user_name}")
-public String ratings(Model model){
-	User currentUser = userService.findCurrentUser();
-	model.addAttribute("ban", UserService.user_name({id}));
-	return "ratings";
 }
-	
-}
+

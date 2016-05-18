@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import gingko.entity.User;
 import gingko.service.UserService;
 
+import static javax.swing.text.StyleConstants.ModelAttribute;
+
 @Controller
 public class UserController {
 
@@ -58,6 +60,14 @@ public class UserController {
 		model.addAttribute("user", userService.findCurrentUser());
 //		return "redirect:/users";
 		return "redirect:/account/edit?success=true";
+	}
+
+	@RequestMapping(value="/admin/ban/{id}", method = RequestMethod.POST)
+		public String ban(Model model){
+		User user = userService.findCurrentUser();
+		user.setEnabled(false);
+
+		return "admin-users";
 	}
 
 }
