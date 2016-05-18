@@ -62,7 +62,7 @@
 			<div class="ui card">
 				<center>
 					<div class="image">
-						<img src="<c:url value='/resources/images/hp.jpg'/>" alt="book"
+						<img src=${'http://covers.openlibrary.org/b/isbn/'.concat(book.isbn).concat('-M.jpg')} alt="book"
 							width="290">
 					</div>
 				</center>
@@ -94,7 +94,7 @@
 	</div>
 
 	<div class='book-container'>
-		<img src="<c:url value='/resources/images/hp.jpg'/>" alt="book"
+		<img src=${'http://covers.openlibrary.org/b/isbn/'.concat(book.isbn).concat('-M.jpg')} alt="book"
 			height="156" width="130">
 		<p>Harry Potter</p>
 		<p>J.K. Rowling</p>

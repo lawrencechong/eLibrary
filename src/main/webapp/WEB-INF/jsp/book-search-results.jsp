@@ -10,6 +10,8 @@
 Found: ${booksFound} Books
 <br>
 
+
+
 <div class="container left">
 	<div class="well well-sm">
 		<strong>Display:</strong>
@@ -70,12 +72,10 @@ Found: ${booksFound} Books
 	</div>
 	
 	<div id="products" class="row list-group">
-
 		<c:forEach items="${books}" var="book">
 			<div class="item  col-xs-4 col-lg-4">
 				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="http://placehold.it/400x250/000/fff" alt="" />
+					<img class="group list-group-image" src=${'http://covers.openlibrary.org/b/isbn/'.concat(book.isbn).concat('-M.jpg')} />
 					<div class="caption">
 						<h4 class="group inner list-group-item-heading"><a href="/book/${book.id}">${book.title}</a></h4>
 						<h6>
@@ -89,8 +89,10 @@ Found: ${booksFound} Books
 								<p class="lead">$21.000</p>
 							</div>
 							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-success" href="http://www.jquery2dotnet.com">Add
-									to cart</a>
+								<script type="text/javascript" src="//books.google.com/books/previewlib.js"></script>
+								<script type="text/javascript">
+									GBS_insertPreviewButtonPopup('ISBN:${book.isbn}');
+								</script>
 							</div>
 						</div>
 					</div>

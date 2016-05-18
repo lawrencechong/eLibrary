@@ -1,19 +1,17 @@
 package gingko.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
+import gingko.entity.Book;
+import gingko.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import gingko.entity.Book;
-import gingko.repository.BookRepository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class SearchService {
