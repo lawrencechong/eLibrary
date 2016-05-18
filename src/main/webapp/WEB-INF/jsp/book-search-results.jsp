@@ -74,7 +74,7 @@ Found: ${booksFound} Books
 					<img class="group list-group-image"
 						src="http://placehold.it/400x250/000/fff" alt="" />
 					<div class="caption">
-						<h4 class="group inner list-group-item-heading">${book.title}</h4>
+						<h4 class="group inner list-group-item-heading"><a href="/book/${book.id}">${book.title}</a></h4>
 						<h6>
 							<c:forEach items="${book.authors}" var="author">
 								<div class="group inner list-group-item-text">${author.name}</div>
